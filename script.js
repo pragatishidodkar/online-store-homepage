@@ -71,3 +71,14 @@ sorted.sort((a,b)=>b.rating - a.rating);
 displayProducts(sorted);
 
 }
+document.getElementById("search").addEventListener("input",(e)=>{
+
+const term = e.target.value.toLowerCase();
+
+const filtered = products.filter(product =>
+product.name.toLowerCase().includes(term)
+);
+
+displayProducts(filtered);
+
+});
