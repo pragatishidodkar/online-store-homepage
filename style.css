@@ -4,18 +4,12 @@ margin:0;
 background:#f5f5f5;
 }
 
-/* Navbar */
 .navbar{
 display:flex;
 justify-content:space-between;
-align-items:center;
 padding:15px 30px;
 background:#222;
 color:white;
-}
-
-.logo{
-margin:0;
 }
 
 .search{
@@ -24,18 +18,17 @@ border-radius:5px;
 border:none;
 }
 
-/* Categories */
 .categories{
 text-align:center;
 margin:20px;
 }
 
 .categories button{
-padding:10px 15px;
+padding:10px;
 margin:5px;
-border:none;
 background:#333;
 color:white;
+border:none;
 cursor:pointer;
 border-radius:5px;
 }
@@ -44,7 +37,6 @@ border-radius:5px;
 background:#555;
 }
 
-/* Filters */
 .filters{
 display:flex;
 justify-content:center;
@@ -56,7 +48,6 @@ margin-bottom:20px;
 padding:8px;
 }
 
-/* Product Grid */
 .product-container{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -64,13 +55,12 @@ gap:20px;
 padding:20px;
 }
 
-/* Product Card */
 .product-card{
 background:white;
 padding:15px;
 border-radius:10px;
 text-align:center;
-transition:transform 0.3s ease;
+transition:0.3s;
 }
 
 .product-card:hover{
@@ -87,8 +77,8 @@ object-fit:cover;
 color:gold;
 }
 
-.product-card button{
-padding:8px 12px;
+button{
+padding:8px;
 border:none;
 background:#222;
 color:white;
