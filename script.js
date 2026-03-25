@@ -31,3 +31,18 @@ container.appendChild(card);
 }
 
 displayProducts(products);
+function filterCategory(category){
+
+if(category === "All"){
+
+displayProducts(products);
+
+return;
+
+}
+
+const filtered = products.filter(product => product.category === category);
+
+displayProducts(filtered);
+
+}
