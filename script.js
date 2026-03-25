@@ -1,3 +1,6 @@
+let currentCategory = "All";
+let currentSearch = "";
+let currentSort = "";
 const container = document.getElementById("productContainer");
 
 function displayProducts(list){
