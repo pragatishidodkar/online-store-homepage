@@ -85,3 +85,38 @@ product.name.toLowerCase().includes(term)
 displayProducts(filtered);
 
 });
+function applyFilters(){
+
+let result = [...products];
+
+
+// Category filter
+if(currentCategory !== "All"){
+result = result.filter(p => p.category === currentCategory);
+}
+
+
+// Search filter
+if(currentSearch){
+result = result.filter(p =>
+p.name.toLowerCase().includes(currentSearch)
+);
+}
+
+
+// Sorting
+if(currentSort === "low"){
+result.sort((a,b)=>a.price - b.price);
+}
+
+else if(currentSort === "high"){
+result.sort((a,b)=>b.price - a.price);
+}
+
+else if(currentSort === "rating"){
+result.sort((a,b)=>b.rating - a.rating);
+}
+
+displayProducts(result);
+
+}
