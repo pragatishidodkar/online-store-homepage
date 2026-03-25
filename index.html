@@ -2,89 +2,56 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Online Store</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<!-- Navbar -->
 <header class="navbar">
-
 <h1 class="logo">Online Store</h1>
-
 <input type="text" id="search" placeholder="Search products...">
-
 </header>
 
-
 <div class="categories">
-
 <button onclick="filterCategory('All')">All</button>
 <button onclick="filterCategory('Electronics')">Electronics</button>
 <button onclick="filterCategory('Fashion')">Fashion</button>
 <button onclick="filterCategory('Books')">Books</button>
 <button onclick="filterCategory('Home')">Home</button>
-
 </div>
 
-
-<!-- Filter Section -->
 <div class="filters">
 
 <select onchange="sortProducts(this.value)">
-
 <option value="">Sort By</option>
 <option value="low">Price Low to High</option>
 <option value="high">Price High to Low</option>
 <option value="rating">Rating High to Low</option>
-
 </select>
 
-<select>
-<option>Price Range</option>
-<option>Under ₹500</option>
-<option>₹500 - ₹2000</option>
-<option>Above ₹2000</option>
+<select onchange="filterPrice(this.value)">
+<option value="">Price Range</option>
+<option value="low">Under ₹500</option>
+<option value="mid">₹500 - ₹2000</option>
+<option value="high">Above ₹2000</option>
 </select>
 
-<select>
-<option>Rating</option>
-<option>4★ & above</option>
-<option>3★ & above</option>
+<select onchange="filterRating(this.value)">
+<option value="">Rating</option>
+<option value="4">4★ & above</option>
+<option value="3">3★ & above</option>
 </select>
 
 </div>
-
-
-<!-- Product Grid -->
-<div class="product-container">
 
 <div class="product-container" id="productContainer"></div>
 
-<img src="https://via.placeholder.com/200">
-
-<h3>Product Name</h3>
-
-<p>₹999</p>
-
-<p class="rating">⭐⭐⭐⭐</p>
-
-<button>Add to Cart</button>
-
-</div>
-
-</div>
-
+<script src="products-data.js"></script>
+<script src="script.js"></script>
 
 </body>
 
 </html>
-<script src="products-data.js"></script>
-<script src="script.js"></script>
