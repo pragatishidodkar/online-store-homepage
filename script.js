@@ -8,20 +8,15 @@ let currentSort = "";
 let currentPrice = "";
 let currentRating = "";
 
-
-// 🔥 Fetch products from API
-fetch("https://dummyjson.com/products")
+// Fetch products
+fetch("https://fakestoreapi.com/products")
 .then(res => res.json())
 .then(data => {
-
-allProducts = data.products;
-
+allProducts = data;
 applyFilters();
-
 });
 
-
-// Display function
+// Display
 function displayProducts(list){
 
 container.innerHTML = "";
@@ -33,10 +28,10 @@ const card = document.createElement("div");
 card.classList.add("product-card");
 
 card.innerHTML = `
-<img src="${product.thumbnail}">
+<img src="${product.image}">
 <h3>${product.title}</h3>
-<p>₹${product.price}</p>
-<p class="rating">${"⭐".repeat(Math.round(product.rating))}</p>
+<p>$${product.price}</p>
+<p class="rating">${"⭐".repeat(Math.round(product.rating.rate))}</p>
 <button>Add to Cart</button>
 `;
 
@@ -47,16 +42,14 @@ container.appendChild(card);
 }
 
 
-// 🔥 Main filter system
+// Main filter system
 function applyFilters(){
 
 let result = [...allProducts];
 
 // Category
 if(currentCategory !== "All"){
-result = result.filter(p =>
-p.category.toLowerCase().includes(currentCategory.toLowerCase())
-);
+result = result.filter(p => p.category === currentCategory);
 }
 
 // Search
@@ -64,22 +57,6 @@ if(currentSearch){
 result = result.filter(p =>
 p.title.toLowerCase().includes(currentSearch)
 );
-}
-
-// Price
-if(currentPrice === "low"){
-result = result.filter(p => p.price < 500);
-}
-else if(currentPrice === "mid"){
-result = result.filter(p => p.price >= 500 && p.price <= 2000);
-}
-else if(currentPrice === "high"){
-result = result.filter(p => p.price > 2000);
-}
-
-// Rating
-if(currentRating){
-result = result.filter(p => p.rating >= currentRating);
 }
 
 // Sorting
@@ -90,7 +67,7 @@ else if(currentSort === "high"){
 result.sort((a,b)=>b.price - a.price);
 }
 else if(currentSort === "rating"){
-result.sort((a,b)=>b.rating - a.rating);
+result.sort((a,b)=>b.rating.rate - a.rating.rate);
 }
 
 displayProducts(result);
@@ -115,19 +92,5 @@ applyFilters();
 // Sorting
 function sortProducts(type){
 currentSort = type;
-applyFilters();
-}
-
-
-// Price filter
-function filterPrice(type){
-currentPrice = type;
-applyFilters();
-}
-
-
-// Rating filter
-function filterRating(value){
-currentRating = Number(value);
 applyFilters();
 }
