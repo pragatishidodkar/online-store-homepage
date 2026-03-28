@@ -14,19 +14,15 @@
 <h1 class="logo">Online Store</h1>
 <input type="text" id="search" placeholder="Search products...">
 </header>
-  
-  <div class="categories">
 
+<div class="categories">
 <button onclick="filterCategory('All')">All</button>
-
-<button onclick="filterCategory('smartphones')">Phones</button>
-<button onclick="filterCategory('laptops')">Laptops</button>
-<button onclick="filterCategory('fragrances')">Perfumes</button>
-<button onclick="filterCategory('skincare')">Skincare</button>
-<button onclick="filterCategory('groceries')">Groceries</button>
-<button onclick="filterCategory('home-decoration')">Home</button>
-
+<button onclick="filterCategory('Electronics')">Electronics</button>
+<button onclick="filterCategory('Fashion')">Fashion</button>
+<button onclick="filterCategory('Books')">Books</button>
+<button onclick="filterCategory('Home')">Home</button>
 </div>
+
 <div class="filters">
 
 <select onchange="sortProducts(this.value)">
@@ -53,6 +49,7 @@
 
 <div class="product-container" id="productContainer"></div>
 
+<script src="products-data.js"></script>
 <script src="script.js"></script>
 
 </body>
