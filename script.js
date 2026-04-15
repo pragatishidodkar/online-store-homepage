@@ -76,3 +76,22 @@ applyFilters();
 
 // Load
 applyFilters();
+function placeOrder(product){
+
+fetch("http://localhost:5000/api/order", {
+
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+productName: product.name,
+price: product.price,
+quantity: 1
+})
+
+})
+.then(res => res.json())
+.then(data => alert("Order Placed Successfully"))
+
+}
